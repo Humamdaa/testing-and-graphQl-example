@@ -1,4 +1,4 @@
-##Project Overview
+## Project Overview
 This project uses GraphQL along with Express and Apollo Server 
 to handle server-side operations.
 The main functionality includes querying user data and managing user creation.
@@ -7,7 +7,7 @@ controllers, and the main application.
 
 __________________________________________________________________________________
 
-###1. mainResolvers.ts
+### 1. mainResolvers.ts
 This file combines the resolvers for Query and Mutation operations into a central resolver object.
 
 Imports:
@@ -24,7 +24,7 @@ Export: The resolvers object is exported and later used in the Apollo Server ini
 
 __________________________________________________________________________________
 
-###2. userResolver.ts
+### 2. userResolver.ts
 This file defines the resolvers for the User related queries and mutations.
 
 Query:
@@ -39,7 +39,7 @@ Export: The UserResolvers object is exported to be used in mainResolvers.ts.
 
 __________________________________________________________________________________
 
-###3. helloResolver.ts
+### 3. helloResolver.ts
 This file defines a simple query to fetch a greeting message.
 
 Query:
@@ -49,7 +49,7 @@ Export: The helloResolver object is exported to be used in mainResolvers.ts
 
 __________________________________________________________________________________
 
-###4. userSchema.ts
+### 4. userSchema.ts
 This file contains the GraphQL schema definitions for the project, specifying the types, queries, and mutations available in the API.
 
 User Type:
@@ -57,7 +57,6 @@ User Type:
 Represents a user object with three fields: id, username, and email, all of which are required.
 Query Type:
 
-hello: A simple query that returns a greeting message as a string.
 getUserById: A query that takes an id argument (type ID!) and returns a User object.
 Mutation Type:
 
@@ -65,3 +64,8 @@ createUser: A mutation that takes username, email, and password as arguments and
 The gql tag is used to define the schema in a template literal syntax, which is later parsed by Apollo Server to understand the structure of the API.
 
 Export: The typeDefs object is exported for use in the Apollo Server initialization.
+____________________________________________________________________________________
+
+### 5-messageSchema.ts 
+Query Type : 
+hello: A simple query that returns a greeting message as a string.
