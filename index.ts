@@ -1,9 +1,10 @@
-import express from "express"; // Import Application from express
-import { ApolloServer } from "apollo-server-express";
-import dotenv from "dotenv";
-import connectToDB from "./db";
-import { typeDefs } from "./schema/mainSchema";
-import { resolvers } from "./resolvers/mainResolvers";
+import express from 'express'; // Import Application from express
+import { ApolloServer } from 'apollo-server-express';
+import dotenv from 'dotenv';
+import connectToDB from './db';
+import { typeDefs } from './src/schema/mainSchema';
+import { resolvers } from './src/resolvers/mainResolvers';
+import productRoutes from './src/routes/productRoute';
 
 // Initialize environment variables
 dotenv.config();
@@ -13,6 +14,11 @@ const port = process.env.PORT || 5001;
 
 // Connect to MongoDB
 connectToDB();
+
+app.use(express.json());
+
+//path of routes
+app.use('/api/products', productRoutes);
 
 // Initialize Apollo Server
 const server = new ApolloServer({ typeDefs, resolvers });
@@ -26,8 +32,16 @@ async function startServer() {
       console.log(`Server running on http://localhost:${port}/graphql`);
     });
   } catch (error) {
-    console.error("Error starting the server:", error);
+    console.error('Error starting the server:', error);
   }
 }
 
 startServer();
+
+export { app };
+
+//
+// "start": "node dist/index.js",
+// "dev": "nodemon --exec ts-node index.ts",
+    // "test": "jest"
+// 

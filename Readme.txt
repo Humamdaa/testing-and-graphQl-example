@@ -65,3 +65,13 @@ createUser: A mutation that takes username, email, and password as arguments and
 The gql tag is used to define the schema in a template literal syntax, which is later parsed by Apollo Server to understand the structure of the API.
 
 Export: The typeDefs object is exported for use in the Apollo Server initialization.
+
+__________________________________________________________________________________
+
+### note:
+Avoid using special characters (like &, !, #, etc.) in directory names. For example, a directory named: Rest&Test
+Error You May Encounter:'Test\node_modules\.bin\' is not recognized as an internal or external command,
+operable program or batch file.
+node:internal/modules/cjs/loader:1051
+  throw err;
+  ^ Cannot find module 'E:\codeMERN\ts-node\dist\bin.js 
