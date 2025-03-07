@@ -6,7 +6,7 @@ import Product from '../src/models/Product';
 // Mock the Product model
 jest.mock('../src/models/Product', () => {
   return {
-    __esModule: true,
+    __esModule: true, //(default export)
     default: jest.fn().mockImplementation(() => ({
       save: jest.fn().mockResolvedValue({
         _id: 'some-id',
@@ -40,7 +40,7 @@ describe('createProduct Controller', () => {
     // Mock the save method explicitly
     const saveMock = jest.fn().mockResolvedValue(mockProduct);
     (Product as jest.Mocked<any>).mockImplementation(() => {
-      console.log('Mocked save function:', saveMock); // Debugging: Print the saveMock function
+      //console.log('Mocked save function:', saveMock); // Debugging: Print the saveMock function
       return {
         save: saveMock,
       };

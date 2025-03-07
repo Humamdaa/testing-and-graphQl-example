@@ -29,6 +29,7 @@ describe('getProducts Controller', () => {
       { name: 'Product 1', features: ['Feature 1'], price: 100 },
       { name: 'Product 2', features: ['Feature 2'], price: 200 },
     ];
+    
     (Product.find as jest.Mock).mockResolvedValueOnce(mockProducts);
 
     await getProducts(req as Request, res as Response);
